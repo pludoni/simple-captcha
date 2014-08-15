@@ -65,12 +65,7 @@ module SimpleCaptcha #:nodoc
     private
 
       def simple_captcha_image(simple_captcha_key, options = {})
-        defaults = {}
-        defaults[:time] = options[:time] || Time.now.to_i
-
-        query = defaults.collect{ |key, value| "#{key}=#{value}" }.join('&')
-        url = "#{ENV['RAILS_RELATIVE_URL_ROOT']}/simple_captcha?code=#{simple_captcha_key}&#{query}"
-
+        url = simple_captcha_image_url simple_captcha_key, options: options
         id = simple_captcha_image_id(options)
         tag('img', :src => url, :alt => 'captcha', :id => id)
       end
@@ -80,7 +75,7 @@ module SimpleCaptcha #:nodoc
         defaults[:time] = options[:time] || Time.now.to_i
 
         query = defaults.collect{ |key, value| "#{key}=#{value}" }.join('&')
-        "#{ENV['RAILS_RELATIVE_URL_ROOT']}/simple_captcha?code=#{simple_captcha_key}&#{query}"
+        "#{request.protocol}#{request.host_with_port}#{ENV['RAILS_RELATIVE_URL_ROOT']}/simple_captcha?code=#{simple_captcha_key}&#{query}"
       end
 
       def simple_captcha_field(options={})
