@@ -90,7 +90,7 @@ module SimpleCaptcha #:nodoc
 
         if options[:object]
           text_field(options[:object], :captcha, html.merge(:value => '')) +
-          hidden_field(options[:object], :captcha_key, {:value => options[:field_value]})
+          hidden_field(options[:object], :captcha_key, {:value => options[:field_value], :id => 'captcha_key'})
         else
           text_field_tag(:captcha, nil, html) +
           hidden_field_tag(:captcha_key, options[:field_value])
