@@ -75,6 +75,7 @@ module SimpleCaptcha #:nodoc
         params << "-pointsize 22"
         params << "-implode #{ImageHelpers.implode}"
         params << "label:#{text}"
+        params << "-evaluate Uniform-noise #{SimpleCaptcha.noise}"
         params << "jpeg:-"
 
         SimpleCaptcha::Utils::run("convert", params.join(' '))
