@@ -5,7 +5,6 @@ module SimpleCaptcha #:nodoc
     # Execute command with params and return output if exit status equal expected_outcodes
     def self.run(cmd, params = "", expected_outcodes = 0)
       command = %Q[#{cmd} #{params}].gsub(/\s+/, " ")
-      command = "#{command} 2>&1"
 
       unless (image_magick_path = SimpleCaptcha.image_magick_path).blank?
         command = File.join(image_magick_path, command)
