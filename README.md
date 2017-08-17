@@ -1,4 +1,4 @@
-#SimpleCaptcha2
+# SimpleCaptcha2
 
 [![Build Status](https://travis-ci.org/pludoni/simple-captcha.png?branch=master)](https://travis-ci.org/pludoni/simple-captcha)
 [![Gem Version](https://badge.fury.io/rb/simple_captcha2.svg)](https://badge.fury.io/rb/simple_captcha2)
@@ -7,7 +7,7 @@ SimpleCaptcha(2) is the simplest and a robust captcha plugin. Its implementation
 SimpleCaptcha2 is available to be used with Rails 3 + 4.
 This is a fork of the popular Rubygem ``simple_captcha`` which got abandoned.
 
-##Features
+## Features
 
 * Zero FileSystem usage (secret code moved to db-store and image storage removed).
 * Provides various image styles.
@@ -17,7 +17,7 @@ This is a fork of the popular Rubygem ``simple_captcha`` which got abandoned.
 * Flexible DOM and CSS handling(There is a separate view partial for rendering SimpleCaptcha DOM elements).
 * Automated removal of 1 hour old unmatched simple_captcha data.
 
-##Requirements
+## Requirements
 
 * Ruby >= 1.9.3
 * Rails >= 3.2
@@ -30,7 +30,7 @@ You might need to install Ghostscript on a Mac-System:
 brew install ghostscript
 ```
 
-##Installation
+## Installation
 
 Put this into your Gemfile
 
@@ -114,7 +114,7 @@ Must add them:
 :captcha, :captcha_key
 ```
 
-####Form-Builder helper
+#### Form-Builder helper
 
 ```erb
 <%= form_for @user do |form| -%>
@@ -124,7 +124,7 @@ Must add them:
 <% end -%>
 ```
 
-####Validating with captcha
+#### Validating with captcha
 
 NOTE: @user.valid? will still work as it should, it will not validate the captcha code.
 
@@ -132,7 +132,7 @@ NOTE: @user.valid? will still work as it should, it will not validate the captch
 @user.valid_with_captcha?
 ```
 
-####Saving with captcha
+#### Saving with captcha
 
 NOTE: @user.save will still work as it should, it will not validate the captcha code.
 
@@ -140,7 +140,7 @@ NOTE: @user.save will still work as it should, it will not validate the captcha 
 @user.save_with_captcha
 ```
 
-###Formtastic integration
+### Formtastic integration
 
 SimpleCaptcha detects if you are using Formtastic:
 
@@ -164,16 +164,16 @@ assert_equal 1, SimpleCaptcha::SimpleCaptchaData.count
 fill_in 'captcha', with: SimpleCaptcha::SimpleCaptchaData.first.value
 ```
 
-##Options & Examples
+## Options & Examples
 
-###View Options
+### View Options
 
 * ``:label`` - provides the custom text b/w the image and the text field, the default is "type the code from the image"
 * ``:object`` - the name of the object of the model class, to implement the model based captcha.
 * ``:code_type`` - return numeric only if set to 'numeric'
 * ``:multiple`` - allow to use the same captcha in multiple forms in one page. True for the first appaerance and false for the rest.
 
-###Global options
+### Global options
 
 * ``:image_style`` - provides the specific image style for the captcha image.
 There are eight different styles available with the plugin as...
@@ -270,8 +270,8 @@ You can change the CSS of the SimpleCaptcha DOM elements as per your need in thi
 
 ``app/views/simple_captcha/_simple_captcha.erb``
 
-###View's Examples
-####Controller Based Example
+### View's Examples
+#### Controller Based Example
 
 ```erb
 <%= show_simple_captcha %>
@@ -279,19 +279,19 @@ You can change the CSS of the SimpleCaptcha DOM elements as per your need in thi
 <%= show_simple_captcha(:label => "human authentication") %>
 ```
 
-####Model Based Example
+#### Model Based Example
 
 ```erb
 <%= show_simple_captcha(:object => 'user', :label => "human authentication") %>
 ```
 
-####Model Options
+#### Model Options
 
 * ``:message`` - provides the custom message on failure of captcha authentication the default is "Secret Code did not match with the Image"
 
 * ``:add_to_base`` - if set to true, appends the error message to the base.
 
-#####Model's Example
+##### Model's Example
 
 ```ruby
 class User < ActiveRecord::Base
@@ -304,7 +304,7 @@ end
 ```
 
 
-##I18n
+## I18n
 
 ```yaml
 en:
@@ -317,7 +317,7 @@ en:
       user: "The secret Image and code were different"
 ```
 
-##Contributing
+## Contributing
 
 For testing, generate a temporary Rails dummy app inside test:
 
@@ -333,7 +333,7 @@ Please add test cases when adding new functionality. I started with some basic e
 
 The tests will be run on [Travis-CI](https://travis-ci.org/pludoni/simple-captcha).
 
-##Who's who?
+## Who's who?
 
 Enjoy the simplest captcha implementation.
 
