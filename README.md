@@ -24,10 +24,14 @@ This is a fork of the popular Rubygem ``simple_captcha`` which got abandoned.
 * ImageMagick should be installed on your machine to use this plugin.
   visit http://www.imagemagick.org/script/index.php for more details.
 
-You might need to install Ghostscript on a Mac-System:
+You might need to install Ghostscript on a Mac-System or a Debian-System:
 
 ```
 brew install ghostscript
+```
+
+```
+apt-get install ghostscript
 ```
 
 ##Installation
