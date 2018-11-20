@@ -74,10 +74,10 @@ module SimpleCaptcha #:nodoc
         params << "-gravity Center"
         params << "-pointsize 22"
         params << "-implode #{ImageHelpers.implode}"
-        params << "label:#{text}"
         unless SimpleCaptcha.font.empty?
           params << "-font #{SimpleCaptcha.font}"
         end
+        params << "label:#{text}"
         if SimpleCaptcha.noise and SimpleCaptcha.noise > 0
           params << "-evaluate Uniform-noise #{SimpleCaptcha.noise}"
         end
