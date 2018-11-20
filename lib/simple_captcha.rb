@@ -18,6 +18,8 @@ module SimpleCaptcha
 
   if defined?(ActiveRecord)
     autoload :SimpleCaptchaData, 'simple_captcha/simple_captcha_data'
+  elsif defined?(Sequel)
+    autoload :SimpleCaptchaData, 'simple_captcha/simple_captcha_data_sequel'
   else
     autoload :SimpleCaptchaData,      'simple_captcha/simple_captcha_data_mongoid.rb'
   end

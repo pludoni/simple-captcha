@@ -23,6 +23,7 @@ class SimpleCaptchaGenerator < Rails::Generators::Base
   private
 
   def migration_file
+    return "migration_sequel.rb" if defined?(Sequel)
     Rails::VERSION::MAJOR > 4 ? "migration5.rb" : "migration.rb"
   end
 end
