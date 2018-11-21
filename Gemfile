@@ -14,3 +14,7 @@ end
 if ENV['DB'] and ENV['DB']['postgresql']
   gem 'pg'
 end
+
+gem "bootsnap", "~> 1.3"
+
+gem "puma", "~> 3.12"

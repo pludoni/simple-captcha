@@ -17,6 +17,12 @@ class SimpleCaptchaGenerator < Rails::Generators::Base
   end
 
   def create_captcha_migration
-    migration_template "migration.rb", File.join('db/migrate', "create_simple_captcha_data.rb")
+    migration_template migration_file, File.join('db/migrate', "create_simple_captcha_data.rb")
+  end
+
+  private
+
+  def migration_file
+    Rails::VERSION::MAJOR > 4 ? "migration5.rb" : "migration.rb"
   end
 end
