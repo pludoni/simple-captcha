@@ -1,7 +1,8 @@
 if defined? Formtastic
   require 'test_helper'
   class FormtasticTest  < ActionDispatch::IntegrationTest
-    self.use_transactional_fixtures = false
+    self.use_transactional_tests = false if Rails::VERSION::MAJOR >= 5
+    self.use_transactional_fixtures = false if Rails::VERSION::MAJOR < 5
     include Capybara::DSL
 
     setup do
