@@ -169,6 +169,17 @@ assert_equal 1, SimpleCaptcha::SimpleCaptchaData.count
 fill_in 'captcha', with: SimpleCaptcha::SimpleCaptchaData.first.value
 ```
 
+## ORM support
+
+simple-captcha2 supports 3 type of ORM: ActiveRecord, Sequel and Mongoid.
+
+Selection of ORM is base on loaded classes. If `ActiveRecord` is loaded then it will be used for the simple captcha data model.
+If `ActiveRecord` is undefined, `Sequel` presence is tested. If `Sequel` is defined it will used for the simple captcha data model.
+If not, `Mongoid` is used.
+
+For instance if your application is using Sequel as an ORM just make sure you require `sequel-rails` gem before `simple-captcha2`
+ in your Gemfile and respective model will be selected automatically.
+
 ## Options & Examples
 
 ### View Options
