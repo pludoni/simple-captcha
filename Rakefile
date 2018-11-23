@@ -24,8 +24,14 @@ namespace :dummy do
   task :setup do
     require 'rails'
     require 'simple_captcha'
-    require File.expand_path('../test/lib/generators/simple_captcha/dummy/dummy_generator', __FILE__)
-    SimpleCaptcha::DummyGenerator.start %w(--quiet)
+    if ENV["SEQUEL"].nil?
+      require File.expand_path('../test/lib/generators/simple_captcha/dummy/dummy_generator', __FILE__)
+      generator_class = SimpleCaptcha::DummyGenerator
+    else
+      require File.expand_path('../test/lib/generators/simple_captcha/dummy/dummy_generator_sequel', __FILE__)
+      generator_class = SimpleCaptcha::DummyGeneratorSequel
+    end
+    generator_class.start %w(--quiet)
   end
 
   desc 'destroy dummy Rails app under test/dummy'

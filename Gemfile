@@ -1,5 +1,10 @@
 source "https://rubygems.org"
 
+if ENV['SEQUEL']
+  gem "sequel", "~> 5.14"
+  gem "sequel-rails", "~> 1.0"
+end
+
 gemspec :name => 'simple_captcha2'
 
 gem 'rails', ENV['RAILS'] || '~> 5.0'
