@@ -12,6 +12,7 @@ env:
   - DB=sqlite     RAILS='~> 5.0'
   - DB=postgresql RAILS='~> 5.0'
   - DB=mysql      RAILS='~> 5.0'
+  - DB=sqlite     RAILS='~> 5.0' SEQUEL=1
   - DB=sqlite     RAILS='~> 4.2'
   - DB=postgresql RAILS='~> 4.2'
   - DB=mysql      RAILS='~> 4.2'

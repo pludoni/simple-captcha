@@ -14,3 +14,11 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
+
+if defined?(Sequel)
+  module ::SimpleCaptcha
+    def SimpleCaptchaData.delete_all
+      dataset.delete
+    end
+  end
+end
