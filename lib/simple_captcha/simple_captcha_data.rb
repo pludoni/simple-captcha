@@ -26,6 +26,8 @@ module SimpleCaptcha
       def clear_old_data(time = 1.hour.ago)
         return unless Time === time
         where(["#{connection.quote_column_name(:updated_at)} < ?", time]).delete_all
+      rescue ActiveRecord::Deadlocked => err
+        Rails.logger.error "#{err.class} #{err.message}"
       end
     end
   end
