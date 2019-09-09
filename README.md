@@ -24,18 +24,21 @@ This is a fork of the popular Rubygem ``simple_captcha`` which got abandoned.
 * ImageMagick should be installed on your machine to use this plugin.
   visit http://www.imagemagick.org/script/index.php for more details.
 
+
+
+## Installation
+
 You might need to install Ghostscript on a Mac-System or a Debian-System:
 
 ```
 brew install ghostscript
 ```
 
-
-## Installation
-
 ```
 apt-get install ghostscript
 ```
+
+The default font, that imagemagick uses is Arial. Make sure that font is available (``apt install ttf-mscorefonts-installer``) or change the font in the SimpleCaptcha config.
 
 Put this into your Gemfile
 

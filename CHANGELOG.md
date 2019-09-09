@@ -1,5 +1,11 @@
 # Change Log
 
+## [v0.5.0](https://github.com/pludoni/simple-captcha/tree/v0.4.3) (2019-09-09)
+
+- Feature: supports Sequel #63 by cmrd-senya
+- Fix: Order of font is important; switched order of font + label call #62 by SuperTux88
+- Fix: catches Deadlock #65
+
 ## [v0.4.3](https://github.com/pludoni/simple-captcha/tree/v0.4.3) (2017-02-20)
 
 -  Allow manual font family overrides #55 to help user on Debian testing with ImageMagick Version 6.9.6
